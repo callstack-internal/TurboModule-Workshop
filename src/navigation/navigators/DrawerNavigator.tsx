@@ -6,14 +6,10 @@ import {
 } from '@react-navigation/drawer';
 import { View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import StackNavigator from './StackNavigator';
-import HowItWorksScreen from '../screens/HowItWorksScreen';
-
-// Define the drawer navigator param list
-export type DrawerParamList = {
-  Main: undefined;
-  HowItWorks: undefined;
-};
+import StackNavigator from './StackNavigator.tsx';
+import HowItWorksScreen from '../../screens/HowItWorksScreen.tsx';
+import { Screens } from '../constants.ts';
+import { DrawerParamList } from '../types.ts';
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
 
@@ -51,18 +47,18 @@ function DrawerNavigator() {
       drawerContent={CustomDrawerContent}
     >
       <Drawer.Screen
-        name="Main"
+        name={Screens.Main.name}
         component={StackNavigator}
         options={{
-          title: 'Catálogo de Perros',
+          title: Screens.Main.title,
           drawerIcon: DogIcon,
         }}
       />
       <Drawer.Screen
-        name="HowItWorks"
+        name={Screens.HowItWorks.name}
         component={HowItWorksScreen}
         options={{
-          title: 'Cómo funciona',
+          title: Screens.HowItWorks.title,
           drawerIcon: HelpIcon,
         }}
       />

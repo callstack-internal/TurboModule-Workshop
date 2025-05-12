@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { PerroConEstado } from '../types/dog';
 import { mostrarInfoPerro, esAdoptable } from '../utils/dogUtils';
-import { RootStackParamList } from '../screens/DogDetailsScreen';
+import { RootStackParamList } from '../navigation/types.ts';
 
 interface DogCardProps {
   perro: PerroConEstado;

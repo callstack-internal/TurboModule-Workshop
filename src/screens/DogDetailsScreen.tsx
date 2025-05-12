@@ -14,14 +14,6 @@ import { useAdoption } from '../context/AdoptionContext';
 import { PerroConEstado } from '../types/dog';
 import { esAdoptable } from '../utils/dogUtils';
 
-// Define the navigation parameters
-export type RootStackParamList = {
-  Home: undefined;
-  AdoptedDogs: undefined;
-  DogDetails: { dog: PerroConEstado };
-  HowItWorks: undefined;
-};
-
 function DogDetailsScreen() {
   const route = useRoute<{
     key: string;
@@ -29,9 +21,6 @@ function DogDetailsScreen() {
     params: { dog: PerroConEstado };
   }>();
   const { addAdoptedDog, isAdopted } = useAdoption();
-
-  // Add console logs for debugging
-  console.log('Route params:', route.params);
 
   // Check if route.params exists and has a dog property
   if (!route.params || !route.params.dog) {
@@ -46,7 +35,6 @@ function DogDetailsScreen() {
   }
 
   const { dog } = route.params;
-  console.log('Dog data:', dog);
 
   const adoptable = esAdoptable(dog);
   const alreadyAdopted = isAdopted(dog.nombre);
@@ -85,6 +73,14 @@ function DogDetailsScreen() {
       },
     ]);
   };
+
+  if (!dog.foto) {
+    return (
+      <View style={styles.emptyContainer}>
+        <Text style={styles.emptyText}>No se pudo cargar la información del perro</Text>
+      </View>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -133,7 +129,7 @@ function DogDetailsScreen() {
 
           <Text style={styles.sectionTitle}>Sobre {dog.nombre}</Text>
           <Text style={styles.description}>
-            {dog.nombre} es un perro de raza {dog.raza.toLowerCase()}
+            {dog.nombre} es un perro de raza {dog.raza?.toLowerCase()}
             {dog.edad ? ` de ${dog.edad} ${dog.edad === 1 ? 'año' : 'años'}` : ''}. Es un compañero
             leal y cariñoso que busca un hogar donde pueda recibir todo el amor que merece.
           </Text>
@@ -274,6 +270,15 @@ const styles = StyleSheet.create({
   errorText: {
     fontSize: 16,
     color: '#dc3545',
+    textAlign: 'center',
+  },
+  emptyContainer: {
+    padding: 24,
+    alignItems: 'center',
+  },
+  emptyText: {
+    fontSize: 16,
+    color: '#6c757d',
     textAlign: 'center',
   },
 });

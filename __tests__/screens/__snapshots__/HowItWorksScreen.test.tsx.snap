@@ -1,0 +1,320 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HowItWorksScreen matches snapshot 1`] = `
+<RCTSafeAreaView
+  style={
+    {
+      "backgroundColor": "#f8f9fa",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "backgroundColor": "#ffffff",
+        "borderBottomColor": "#e9ecef",
+        "borderBottomWidth": 1,
+        "elevation": 2,
+        "padding": 16,
+        "shadowColor": "#000",
+        "shadowOffset": {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.1,
+        "shadowRadius": 3,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "marginRight": 16,
+            "opacity": 1,
+          }
+        }
+        testID="back-button"
+      >
+        <Icon
+          color="#212529"
+          name="arrow-left"
+          size={24}
+        />
+      </View>
+      <Text
+        style={
+          {
+            "color": "#212529",
+            "flex": 1,
+            "fontSize": 24,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        ¿Cómo funciona la adopción?
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "paddingBottom": 24,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 8,
+            "elevation": 1,
+            "marginHorizontal": 16,
+            "marginTop": 16,
+            "padding": 16,
+            "shadowColor": "#000",
+            "shadowOffset": {
+              "height": 1,
+              "width": 0,
+            },
+            "shadowOpacity": 0.05,
+            "shadowRadius": 2,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#212529",
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginBottom": 8,
+            }
+          }
+        >
+          1. Explora nuestro catálogo
+        </Text>
+        <Text
+          style={
+            {
+              "color": "#495057",
+              "fontSize": 16,
+              "lineHeight": 24,
+            }
+          }
+        >
+          En la pestaña "Adoptar" encontrarás todos los perros disponibles para adopción. Puedes buscar por nombre y ordenarlos por cercanía a tu ubicación.
+        </Text>
+      </View>
+      <View
+        style={
+          {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 8,
+            "elevation": 1,
+            "marginHorizontal": 16,
+            "marginTop": 16,
+            "padding": 16,
+            "shadowColor": "#000",
+            "shadowOffset": {
+              "height": 1,
+              "width": 0,
+            },
+            "shadowOpacity": 0.05,
+            "shadowRadius": 2,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#212529",
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginBottom": 8,
+            }
+          }
+        >
+          2. Conoce a los perros
+        </Text>
+        <Text
+          style={
+            {
+              "color": "#495057",
+              "fontSize": 16,
+              "lineHeight": 24,
+            }
+          }
+        >
+          Toca en cualquier perro para ver más detalles sobre él. Podrás ver su edad, raza, ubicación y si está disponible para adopción.
+        </Text>
+      </View>
+      <View
+        style={
+          {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 8,
+            "elevation": 1,
+            "marginHorizontal": 16,
+            "marginTop": 16,
+            "padding": 16,
+            "shadowColor": "#000",
+            "shadowOffset": {
+              "height": 1,
+              "width": 0,
+            },
+            "shadowOpacity": 0.05,
+            "shadowRadius": 2,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#212529",
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginBottom": 8,
+            }
+          }
+        >
+          3. Adopta un perro
+        </Text>
+        <Text
+          style={
+            {
+              "color": "#495057",
+              "fontSize": 16,
+              "lineHeight": 24,
+            }
+          }
+        >
+          Si un perro está disponible para adopción, verás un botón "Adoptar" en su página de detalles. Al presionarlo, confirmarás tu intención de adoptar.
+        </Text>
+      </View>
+      <View
+        style={
+          {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 8,
+            "elevation": 1,
+            "marginHorizontal": 16,
+            "marginTop": 16,
+            "padding": 16,
+            "shadowColor": "#000",
+            "shadowOffset": {
+              "height": 1,
+              "width": 0,
+            },
+            "shadowOpacity": 0.05,
+            "shadowRadius": 2,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#212529",
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginBottom": 8,
+            }
+          }
+        >
+          4. Gestiona tus adopciones
+        </Text>
+        <Text
+          style={
+            {
+              "color": "#495057",
+              "fontSize": 16,
+              "lineHeight": 24,
+            }
+          }
+        >
+          En la pestaña "Mis Perros" podrás ver todos los perros que has adoptado. Esta lista se guarda automáticamente, así que no perderás tus adopciones aunque cierres la aplicación.
+        </Text>
+      </View>
+      <View
+        style={
+          {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 8,
+            "elevation": 1,
+            "marginHorizontal": 16,
+            "marginTop": 16,
+            "padding": 16,
+            "shadowColor": "#000",
+            "shadowOffset": {
+              "height": 1,
+              "width": 0,
+            },
+            "shadowOpacity": 0.05,
+            "shadowRadius": 2,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#212529",
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginBottom": 8,
+            }
+          }
+        >
+          Perros no disponibles
+        </Text>
+        <Text
+          style={
+            {
+              "color": "#495057",
+              "fontSize": 16,
+              "lineHeight": 24,
+            }
+          }
+        >
+          Algunos perros no están disponibles para adopción inmediata. Esto puede deberse a que están enfermos o son muy jóvenes. En estos casos, verás la fecha a partir de la cual estarán disponibles.
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;

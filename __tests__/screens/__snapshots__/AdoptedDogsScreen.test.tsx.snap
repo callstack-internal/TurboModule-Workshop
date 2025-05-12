@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdoptedDogsScreen matches snapshot 1`] = `
+<RCTSafeAreaView
+  style={
+    {
+      "backgroundColor": "#f8f9fa",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "backgroundColor": "#ffffff",
+        "borderBottomColor": "#e9ecef",
+        "borderBottomWidth": 1,
+        "elevation": 2,
+        "padding": 16,
+        "shadowColor": "#000",
+        "shadowOffset": {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.1,
+        "shadowRadius": 3,
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "color": "#212529",
+          "fontSize": 24,
+          "fontWeight": "bold",
+          "marginBottom": 12,
+        }
+      }
+    >
+      Mis Perros Adoptados
+    </Text>
+  </View>
+  <RCTScrollView
+    ListEmptyComponent={[Function]}
+    contentContainerStyle={
+      {
+        "padding": 12,
+        "paddingBottom": 24,
+      }
+    }
+    data={[]}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    showsVerticalScrollIndicator={false}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "height": 300,
+            "justifyContent": "center",
+            "padding": 24,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#6c757d",
+              "fontSize": 16,
+              "textAlign": "center",
+            }
+          }
+        >
+          No has adoptado ningún perro todavía
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;

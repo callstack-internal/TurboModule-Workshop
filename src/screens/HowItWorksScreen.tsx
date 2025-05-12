@@ -20,7 +20,11 @@ function HowItWorksScreen() {
 
       <View style={styles.header}>
         <View style={styles.headerRow}>
-          <TouchableOpacity style={styles.menuButton} onPress={() => navigation.goBack()}>
+          <TouchableOpacity
+            style={styles.menuButton}
+            onPress={() => navigation.goBack()}
+            testID="back-button"
+          >
             <Icon name="arrow-left" size={24} color="#212529" />
           </TouchableOpacity>
           <Text style={styles.title}>¿Cómo funciona la adopción?</Text>

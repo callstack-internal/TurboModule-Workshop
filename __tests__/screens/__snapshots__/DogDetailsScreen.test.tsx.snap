@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DogDetailsScreen matches snapshot 1`] = `
+<RCTSafeAreaView
+  style={
+    {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView>
+    <View>
+      <Image
+        resizeMode="cover"
+        source={
+          {
+            "uri": "https://example.com/dog.jpg",
+          }
+        }
+        style={
+          {
+            "height": 300,
+            "width": "100%",
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "padding": 16,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#212529",
+              "fontSize": 28,
+              "fontWeight": "bold",
+              "marginBottom": 4,
+            }
+          }
+        >
+          Max
+        </Text>
+        <Text
+          style={
+            {
+              "color": "#495057",
+              "fontSize": 18,
+              "marginBottom": 4,
+              "textTransform": "capitalize",
+            }
+          }
+        >
+          labrador
+        </Text>
+        <Text
+          style={
+            {
+              "color": "#6c757d",
+              "fontSize": 16,
+              "marginBottom": 8,
+            }
+          }
+        >
+          3 años
+        </Text>
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "marginTop": 4,
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "color": "#0066cc",
+                "fontSize": 14,
+                "fontWeight": "500",
+              }
+            }
+          >
+            A 
+            2.5
+             km de tu ubicación
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "backgroundColor": "#e9ecef",
+              "height": 1,
+              "marginVertical": 16,
+            }
+          }
+        />
+        <View
+          style={
+            {
+              "marginTop": 4,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignSelf": "flex-start",
+                  "borderRadius": 20,
+                  "marginBottom": 8,
+                  "paddingHorizontal": 12,
+                  "paddingVertical": 6,
+                },
+                {
+                  "backgroundColor": "#d4edda",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#212529",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                }
+              }
+            >
+              Disponible para adopción
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "backgroundColor": "#e9ecef",
+              "height": 1,
+              "marginVertical": 16,
+            }
+          }
+        />
+        <Text
+          style={
+            {
+              "color": "#212529",
+              "fontSize": 20,
+              "fontWeight": "bold",
+              "marginBottom": 8,
+            }
+          }
+        >
+          Sobre 
+          Max
+        </Text>
+        <Text
+          style={
+            {
+              "color": "#495057",
+              "fontSize": 16,
+              "lineHeight": 24,
+              "marginBottom": 16,
+            }
+          }
+        >
+          Max
+           es un perro de raza 
+          labrador
+           de 3 años
+          . Es un compañero leal y cariñoso que busca un hogar donde pueda recibir todo el amor que merece.
+        </Text>
+        <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "#28a745",
+              "borderRadius": 8,
+              "marginTop": 16,
+              "opacity": 1,
+              "paddingHorizontal": 16,
+              "paddingVertical": 12,
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "color": "#ffffff",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Adoptar
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;

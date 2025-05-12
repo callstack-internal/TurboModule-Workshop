@@ -1,10 +1,11 @@
 import React, { useCallback } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import HomeScreen from '../screens/HomeScreen';
-import AdoptedDogsScreen from '../screens/AdoptedDogsScreen';
+import HomeScreen from '../../screens/HomeScreen.tsx';
+import AdoptedDogsScreen from '../../screens/AdoptedDogsScreen.tsx';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, TouchableOpacity } from 'react-native';
+import { Screens } from '../constants.ts';
 
 export type TabParamList = {
   Adoptar: undefined;
@@ -76,19 +77,19 @@ function TabNavigator() {
       }}
     >
       <Tab.Screen
-        name="Adoptar"
+        name={Screens.Adoptar.name}
         component={HomeScreen}
         options={{
           tabBarIcon: AdoptarIcon,
-          title: 'Adoptar',
+          title: Screens.Adoptar.title,
         }}
       />
       <Tab.Screen
-        name="MisPerros"
+        name={Screens.MisPerros.name}
         component={AdoptedDogsScreen}
         options={{
           tabBarIcon: MisPerrosIcon,
-          title: 'Mis Perros',
+          title: Screens.MisPerros.title,
         }}
       />
     </Tab.Navigator>

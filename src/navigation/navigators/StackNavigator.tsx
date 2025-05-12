@@ -1,9 +1,10 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import TabNavigator from './TabNavigator';
-import DogDetailsScreen from '../screens/DogDetailsScreen';
-import HowItWorksScreen from '../screens/HowItWorksScreen';
-import { RootStackParamList } from '../screens/DogDetailsScreen';
+import TabNavigator from './TabNavigator.tsx';
+import DogDetailsScreen from '../../screens/DogDetailsScreen.tsx';
+import HowItWorksScreen from '../../screens/HowItWorksScreen.tsx';
+import { RootStackParamList } from '../types.ts';
+import { Screens } from '../constants.ts';
 
 // Create the stack navigator
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -22,22 +23,25 @@ function StackNavigator() {
         headerTintColor: '#28a745',
       }}
     >
-      <Stack.Screen name="Home" component={TabNavigator} options={{ headerShown: false }} />
       <Stack.Screen
-        name="DogDetails"
+        name={Screens.Home.name}
+        component={TabNavigator}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name={Screens.DogDetails.name}
         component={DogDetailsScreen}
         options={({ route }) => {
-          console.log('[DEBUG] DogDetails route params:', route.params);
           // Add error handling for the case where route.params or route.params.dog is undefined
           return {
-            title: route.params?.dog?.nombre || 'Detalles del perro',
+            title: route.params?.dog?.nombre ?? 'Detalles del perro',
           };
         }}
       />
       <Stack.Screen
-        name="HowItWorks"
+        name={Screens.HowItWorks.name}
         component={HowItWorksScreen}
-        options={{ title: 'Cómo funciona' }}
+        options={{ title: Screens.HowItWorks.title }}
       />
     </Stack.Navigator>
   );

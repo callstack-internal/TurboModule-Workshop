@@ -76,7 +76,6 @@ function DogList() {
         setError(null);
       } catch (err) {
         setError('Error al cargar los perros. Intente nuevamente.');
-        console.error('Error fetching dogs:', err);
       } finally {
         setIsLoading(false);
         setIsRefreshing(false);
@@ -90,16 +89,12 @@ function DogList() {
     try {
       const permissionStatus = await Location.requestPermission();
 
-      console.log('Permisos', permissionStatus);
-
       if (permissionStatus === 'granted') {
         const location = await Location.getCurrentLocation();
         setUserLocation({
           latitude: location.latitude,
           longitude: location.longitude,
         });
-
-        console.log('Ubicación', location);
 
         // Fetch dogs again with the new location
         await fetchDogs();

@@ -4,7 +4,7 @@ import DogList from '../components/DogList';
 
 function HomeScreen() {
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="home-screen-container">
       <DogList />
     </View>
   );
