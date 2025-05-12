@@ -85,6 +85,14 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    // Add this block for react-native-vector-icons
+    sourceSets {
+        main {
+            assets.srcDirs += 'src/main/assets'
+            assets.includes += ['fonts/MaterialCommunityIcons.ttf']
+        }
+    }
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
@@ -116,4 +124,7 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    // Add this line for react-native-vector-icons
+    implementation project(':react-native-vector-icons')
 }

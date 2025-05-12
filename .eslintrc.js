@@ -4,7 +4,6 @@ module.exports = {
   plugins: ['react-hooks'],
   rules: {
     'no-unused-vars': 'error',
-    'no-console': 'warn',
     curly: 'error',
     'prefer-const': 'error',
     'react-hooks/rules-of-hooks': 'error',

@@ -1,14 +1,25 @@
 import React from 'react';
-import {SafeAreaView, StatusBar} from 'react-native';
-import DogList from './src/components/DogList';
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import DrawerNavigator from './src/navigation/DrawerNavigator';
+import { AdoptionProvider } from './src/context/AdoptionContext';
 
-
-function App(): React.JSX.Element {
+function App() {
   return (
-    <SafeAreaView style={{ flex: 1, margin: 10 }}>
-      <StatusBar />
-      <DogList />
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <AdoptionProvider>
+        <NavigationContainer
+          onStateChange={(state) => {
+            console.log('[DEBUG] Navigation state changed:', state);
+          }}
+          onReady={() => {
+            console.log('[DEBUG] NavigationContainer is ready');
+          }}
+        >
+          <DrawerNavigator />
+        </NavigationContainer>
+      </AdoptionProvider>
+    </SafeAreaProvider>
   );
 }
 

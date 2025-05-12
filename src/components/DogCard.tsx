@@ -1,59 +1,70 @@
 import React, { useMemo } from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  TouchableOpacity
-} from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { PerroConEstado } from '../types/dog';
 import { mostrarInfoPerro, esAdoptable } from '../utils/dogUtils';
+import { RootStackParamList } from '../screens/DogDetailsScreen';
 
 interface DogCardProps {
   perro: PerroConEstado;
 }
 
+// Type for the navigation prop using React Navigation 7
+type DogCardNavigationProp = {
+  navigate: (screen: keyof RootStackParamList, params?: any) => void;
+};
+
 /**
  * DogCard component displays information about a single dog
  */
-const DogCard: React.FC<DogCardProps> = React.memo(({ perro }) => {
+const DogCard = React.memo(function DogCard({ perro }: DogCardProps) {
+  // Get navigation
+  const navigation = useNavigation<DogCardNavigationProp>();
+
   // Get dog information and adoption status
   const info = useMemo(() => mostrarInfoPerro(perro), [perro]);
   const adoptable = useMemo(() => esAdoptable(perro), [perro]);
 
   // Get dog age display text
   const ageText = useMemo(() => {
-    if (perro.edad === undefined) {
+    if (!perro.edad) {
       return 'Edad desconocida';
     }
     return perro.edad === 1 ? '1 año' : `${perro.edad} años`;
   }, [perro.edad]);
 
+  // Handle press on the dog card
+  const handlePress = () => {
+    navigation.navigate('DogDetails', { dog: perro });
+  };
+
   return (
-    <TouchableOpacity
-      style={styles.cardContainer}
-      activeOpacity={0.9}
-    >
+    <TouchableOpacity style={styles.cardContainer} activeOpacity={0.9} onPress={handlePress}>
       <View style={styles.card}>
-        <Image
-          source={{ uri: perro.foto }}
-          style={styles.image}
-          resizeMode="cover"
-        />
+        <Image source={{ uri: perro.foto }} style={styles.image} resizeMode="cover" />
 
         <View style={styles.infoContainer}>
           <Text style={styles.name}>{perro.nombre}</Text>
           <Text style={styles.breed}>{perro.raza}</Text>
           <Text style={styles.age}>{ageText}</Text>
 
+          {perro.distancia && (
+            <View style={styles.distanceContainer}>
+              <Text style={styles.distanceText}>A {perro.distancia} km de tu ubicación</Text>
+              {perro.distancia < 1 && <Text style={styles.nearbyBadge}>¡Cercano a ti!</Text>}
+            </View>
+          )}
+
           <View style={styles.divider} />
 
           <View style={styles.statusContainer}>
             <Text style={styles.infoText}>{info}</Text>
-            <View style={[
-              styles.statusBadge,
-              adoptable ? styles.adoptableBadge : styles.notAdoptableBadge
-            ]}>
+            <View
+              style={[
+                styles.statusBadge,
+                adoptable ? styles.adoptableBadge : styles.notAdoptableBadge,
+              ]}
+            >
               <Text style={styles.statusText}>
                 {adoptable ? 'Disponible para adopción' : 'No adoptable aún'}
               </Text>
@@ -151,6 +162,27 @@ const styles = StyleSheet.create({
     color: '#dc3545',
     marginTop: 4,
     fontStyle: 'italic',
+  },
+  distanceContainer: {
+    marginTop: 4,
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+  },
+  distanceText: {
+    fontSize: 14,
+    color: '#0066cc',
+    fontWeight: '500',
+  },
+  nearbyBadge: {
+    fontSize: 12,
+    color: '#ffffff',
+    backgroundColor: '#28a745',
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 10,
+    marginLeft: 8,
+    overflow: 'hidden',
   },
 });
 
