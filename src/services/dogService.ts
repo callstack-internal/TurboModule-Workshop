@@ -1,11 +1,73 @@
 import { fetchJson } from './apiClient';
 import { Perro, NoAdoptable, PerroConEstado } from '../types/dog';
 
+// Default center coordinates (can be adjusted based on user location)
+const DEFAULT_CENTER = {
+  latitude: 40.416775, // Madrid coordinates as default
+  longitude: -3.70379,
+};
+
+/**
+ * Generates a random location within a specified radius from a center point
+ * @param center - The center coordinates
+ * @param radiusKm - The radius in kilometers
+ * @returns Random coordinates within the radius
+ */
+function generateRandomLocation(center = DEFAULT_CENTER, radiusKm = 10) {
+  // Earth's radius in kilometers
+  const earthRadius = 6371;
+
+  // Convert radius from kilometers to radians
+  const radiusInRadian = radiusKm / earthRadius;
+
+  // Generate a random distance within the radius
+  const randomDistance = Math.random() * radiusInRadian;
+
+  // Generate a random angle in radians
+  const randomAngle = Math.random() * Math.PI * 2;
+
+  // Calculate the random latitude and longitude
+  const lat =
+    (Math.asin(
+      Math.sin((center.latitude * Math.PI) / 180) * Math.cos(randomDistance) +
+        Math.cos((center.latitude * Math.PI) / 180) *
+          Math.sin(randomDistance) *
+          Math.cos(randomAngle),
+    ) *
+      180) /
+    Math.PI;
+
+  const lng =
+    (((center.longitude * Math.PI) / 180 +
+      Math.atan2(
+        Math.sin(randomAngle) *
+          Math.sin(randomDistance) *
+          Math.cos((center.latitude * Math.PI) / 180),
+        Math.cos(randomDistance) -
+          Math.sin((center.latitude * Math.PI) / 180) * Math.sin((lat * Math.PI) / 180),
+      )) *
+      180) /
+    Math.PI;
+
+  return { latitude: lat, longitude: lng };
+}
+
 // API URL for fetching random dog images
 const DOG_API_URL = 'https://dog.ceo/api/breeds/image/random/10';
 
 // List of dog names for random assignment
-const DOG_NAMES = ['Firulais', 'Max', 'Rocky', 'Luna', 'Toby', 'Bella', 'Coco', 'Thor', 'Nina', 'Simba'];
+const DOG_NAMES = [
+  'Firulais',
+  'Max',
+  'Rocky',
+  'Luna',
+  'Toby',
+  'Bella',
+  'Coco',
+  'Thor',
+  'Nina',
+  'Simba',
+];
 
 /**
  * Extracts the breed name from a dog image URL
@@ -14,7 +76,7 @@ const DOG_NAMES = ['Firulais', 'Max', 'Rocky', 'Luna', 'Toby', 'Bella', 'Coco', 
  */
 function extractBreedFromUrl(url: string): string {
   const parts = url.split('/');
-  const breedIndex = parts.findIndex(p => p === 'breeds') + 1;
+  const breedIndex = parts.findIndex((p) => p === 'breeds') + 1;
 
   // Format the breed name by replacing hyphens with spaces and capitalizing
   const breedName = parts[breedIndex]?.split('-').join(' ') || 'desconocida';
@@ -55,7 +117,7 @@ function assignAdoptionStatus(perro: Perro): PerroConEstado {
     return {
       ...perro,
       motivo,
-      fechaDisponible: futureDate.toISOString().split('T')[0]
+      fechaDisponible: futureDate.toISOString().split('T')[0],
     };
   }
 
@@ -76,7 +138,8 @@ export async function obtenerPerros(): Promise<PerroConEstado[]> {
         nombre: randomName(),
         raza: extractBreedFromUrl(url),
         foto: url,
-        edad: randomAge()
+        edad: randomAge(),
+        ubicacion: generateRandomLocation(), // Add random location
       };
 
       // Randomly assign adoption status
