@@ -2,7 +2,6 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TabNavigator from './TabNavigator.tsx';
 import DogDetailsScreen from '../../screens/DogDetailsScreen.tsx';
-import HowItWorksScreen from '../../screens/HowItWorksScreen.tsx';
 import { RootStackParamList } from '../types.ts';
 import { Screens } from '../constants.ts';
 
@@ -37,11 +36,6 @@ function StackNavigator() {
             title: route.params?.dog?.nombre ?? 'Detalles del perro',
           };
         }}
-      />
-      <Stack.Screen
-        name={Screens.HowItWorks.name}
-        component={HowItWorksScreen}
-        options={{ title: Screens.HowItWorks.title }}
       />
     </Stack.Navigator>
   );

@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { PerroConEstado } from '../types/dog';
 import { mostrarInfoPerro, esAdoptable } from '../utils/dogUtils';
 import { RootStackParamList } from '../navigation/types.ts';
+import { Screens } from '../navigation/constants.ts';
 
 interface DogCardProps {
   perro: PerroConEstado;
@@ -35,7 +36,7 @@ const DogCard = React.memo(function DogCard({ perro }: DogCardProps) {
 
   // Handle press on the dog card
   const handlePress = () => {
-    navigation.navigate('DogDetails', { dog: perro });
+    navigation.navigate(Screens.DogDetails.name, { dog: perro });
   };
 
   return (
