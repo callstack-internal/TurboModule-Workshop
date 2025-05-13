@@ -1,9 +1,6 @@
 # Preview
 
-
-https://github.com/user-attachments/assets/9f23e8d3-d4a6-4ad3-bd42-dddd11685d72
-
-
+![Simulator Screen Recording - iPhone 16 Pro - 2025-05-13 at 16 33 34](https://github.com/user-attachments/assets/d82c73f8-0185-4fcf-a80b-a8f72ec1cc9c)
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
