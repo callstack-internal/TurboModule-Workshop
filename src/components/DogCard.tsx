@@ -1,11 +1,6 @@
 import React, { useMemo } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  TouchableOpacity
-} from 'react-native';
+
 import { PerroConEstado } from '../types/dog';
 import { mostrarInfoPerro, esAdoptable } from '../utils/dogUtils';
 
@@ -30,10 +25,7 @@ const DogCard: React.FC<DogCardProps> = React.memo(({ perro }) => {
   }, [perro.edad]);
 
   return (
-    <TouchableOpacity
-      style={styles.cardContainer}
-      activeOpacity={0.9}
-    >
+    <TouchableOpacity style={styles.cardContainer} activeOpacity={0.9}>
       <View style={styles.card}>
         <Image source={{ uri: perro.foto }} style={styles.image} resizeMode="cover" />
 

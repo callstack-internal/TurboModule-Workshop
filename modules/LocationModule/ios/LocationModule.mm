@@ -28,7 +28,7 @@ RCT_EXPORT_METHOD(requestLocationPermission:(RCTPromiseResolveBlock)resolve
   self.permissionResolver = resolve;
   self.permissionRejecter = reject;
 
-  CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+  CLAuthorizationStatus status = [self.locationManager authorizationStatus];
 
   if (status == kCLAuthorizationStatusNotDetermined) {
     [self.locationManager requestWhenInUseAuthorization];
@@ -42,7 +42,7 @@ RCT_EXPORT_METHOD(getCurrentLocation:(RCTPromiseResolveBlock)resolve
   self.locationResolver = resolve;
   self.locationRejecter = reject;
 
-  CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+  CLAuthorizationStatus status = [self.locationManager authorizationStatus];
 
   if (status == kCLAuthorizationStatusAuthorizedWhenInUse ||
       status == kCLAuthorizationStatusAuthorizedAlways) {

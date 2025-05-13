@@ -275,7 +275,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#ffffff',
     fontWeight: '600',
-    fontSize: 14,
+    fontSize: 13,
   },
   locationText: {
     fontSize: 14,
