@@ -3,6 +3,11 @@ export interface Perro {
   raza: string;
   foto: string;
   edad?: number;
+  ubicacion?: {
+    latitude: number;
+    longitude: number;
+  };
+  distancia?: number; // Distance from user in kilometers
 }
 
 export interface Chip {
