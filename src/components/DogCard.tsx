@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import {
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
   View,
   Text,
   Image,
@@ -35,25 +35,30 @@ const DogCard: React.FC<DogCardProps> = React.memo(({ perro }) => {
       activeOpacity={0.9}
     >
       <View style={styles.card}>
-        <Image
-          source={{ uri: perro.foto }}
-          style={styles.image}
-          resizeMode="cover"
-        />
+        <Image source={{ uri: perro.foto }} style={styles.image} resizeMode="cover" />
 
         <View style={styles.infoContainer}>
           <Text style={styles.name}>{perro.nombre}</Text>
           <Text style={styles.breed}>{perro.raza}</Text>
           <Text style={styles.age}>{ageText}</Text>
 
+          {perro.distancia && (
+            <View style={styles.distanceContainer}>
+              <Text style={styles.distanceText}>A {perro.distancia} km de tu ubicación</Text>
+              {perro.distancia < 1 && <Text style={styles.nearbyBadge}>¡Cercano a ti!</Text>}
+            </View>
+          )}
+
           <View style={styles.divider} />
 
           <View style={styles.statusContainer}>
             <Text style={styles.infoText}>{info}</Text>
-            <View style={[
-              styles.statusBadge,
-              adoptable ? styles.adoptableBadge : styles.notAdoptableBadge
-            ]}>
+            <View
+              style={[
+                styles.statusBadge,
+                adoptable ? styles.adoptableBadge : styles.notAdoptableBadge,
+              ]}
+            >
               <Text style={styles.statusText}>
                 {adoptable ? 'Disponible para adopción' : 'No adoptable aún'}
               </Text>
@@ -151,6 +156,27 @@ const styles = StyleSheet.create({
     color: '#dc3545',
     marginTop: 4,
     fontStyle: 'italic',
+  },
+  distanceContainer: {
+    marginTop: 4,
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+  },
+  distanceText: {
+    fontSize: 14,
+    color: '#0066cc',
+    fontWeight: '500',
+  },
+  nearbyBadge: {
+    fontSize: 12,
+    color: '#ffffff',
+    backgroundColor: '#28a745',
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 10,
+    marginLeft: 8,
+    overflow: 'hidden',
   },
 });
 

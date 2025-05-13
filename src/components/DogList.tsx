@@ -9,6 +9,7 @@ import {
   StatusBar,
   TouchableOpacity,
   Alert,
+  SafeAreaView,
 } from 'react-native';
 import { obtenerPerros } from '../services/dogService';
 import { PerroConEstado } from '../types/dog';
@@ -216,7 +217,7 @@ function DogList() {
       )}
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
