@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -15,12 +15,21 @@ import { PerroConEstado } from '../types/dog';
 import { esAdoptable } from '../utils/dogUtils';
 
 function DogDetailsScreen() {
+  const [count, setCount] = useState(0);
   const route = useRoute<{
     key: string;
     name: string;
     params: { dog: PerroConEstado };
   }>();
   const { addAdoptedDog, isAdopted } = useAdoption();
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCount((c) => c + 1);
+    }, 1000);
+
+    // return () => clearInterval(id); // ✅ Limpieza al desmontar
+  }, []);
 
   // Check if route.params exists and has a dog property
   if (!route.params || !route.params.dog) {
@@ -88,6 +97,7 @@ function DogDetailsScreen() {
         <Image source={{ uri: dog.foto }} style={styles.image} resizeMode="cover" />
 
         <View style={styles.infoContainer}>
+          <Text>Contador: {count}</Text>
           <Text style={styles.name}>{dog.nombre}</Text>
           <Text style={styles.breed}>{dog.raza}</Text>
           <Text style={styles.age}>{ageText}</Text>
